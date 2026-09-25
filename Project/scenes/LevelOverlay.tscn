@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://biehsed0hwu0o"]
+
+[ext_resource type="Script" uid="uid://csr2jfwsq5mls" path="res://scripts/level_overlay.gd" id="1_4cpbn"]
+[ext_resource type="FontFile" uid="uid://c845wpmykmtsx" path="res://assests/fonts/PixelOperator8-Bold.ttf" id="2_dd2ej"]
+[ext_resource type="Texture2D" uid="uid://c2m416ffs5pih" path="res://textures/Inventory - Copy.png" id="2_xh13l"]
+[ext_resource type="FontFile" uid="uid://cygoyr7o3pm7i" path="res://assests/fonts/PixelOperator8.ttf" id="3_xh13l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xh13l"]
+atlas = ExtResource("2_xh13l")
+region = Rect2(-2, 0, 104, 103)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a1sth"]
+texture = SubResource("AtlasTexture_xh13l")
+texture_margin_left = 24.0
+texture_margin_top = 24.0
+texture_margin_right = 24.0
+texture_margin_bottom = 24.0
+region_rect = Rect2(5, -2, 101, 105)
+
+[node name="LevelOverlay" type="Control" unique_id=2012600071]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -15.0
+offset_right = 1.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4cpbn")
+
+[node name="Dim" type="ColorRect" parent="." unique_id=393973225]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.24313726, 0.16862746, 0.015686275, 0.654902)
+
+[node name="Box" type="Panel" parent="." unique_id=2128896288]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -3.0
+offset_right = 54.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 1)
+theme_override_styles/panel = SubResource("StyleBoxTexture_a1sth")
+
+[node name="Margin" type="MarginContainer" parent="Box" unique_id=1263461854]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.5
+offset_top = 20.0
+offset_right = -9.5
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Box/Margin" unique_id=357483600]
+layout_mode = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="Box/Margin/VBoxContainer" unique_id=1182216351]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_dd2ej")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Body" type="RichTextLabel" parent="Box/Margin/VBoxContainer" unique_id=1199688150]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/normal_font = ExtResource("3_xh13l")
+theme_override_font_sizes/normal_font_size = 6
+theme_override_font_sizes/bold_font_size = 6
+theme_override_font_sizes/bold_italics_font_size = 6
+theme_override_font_sizes/italics_font_size = 6
+fit_content = true
+autowrap_mode = 2
+horizontal_alignment = 1
+
+[node name="Hint" type="Label" parent="Box/Margin/VBoxContainer" unique_id=251426472]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_xh13l")
+theme_override_font_sizes/font_size = 6
+text = "Press Enter
+"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://8x8fon4syn04"]
+
+[ext_resource type="Script" uid="uid://qa5padgi8uey" path="res://scripts/slime.gd" id="1_n6pvg"]
+[ext_resource type="Texture2D" uid="uid://bhexh8gp0cxxt" path="res://assests/sprites/slime_green.png" id="1_p2gj0"]
+[ext_resource type="PackedScene" uid="uid://6wvrfjobehuw" path="res://scenes/kill_zone.tscn" id="2_n6pvg"]
+[ext_resource type="Script" uid="uid://q8h5j7ok82dx" path="res://scripts/enemy_hitbox.gd" id="4_pjw23"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjw23"]
+atlas = ExtResource("1_p2gj0")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2npkn"]
+atlas = ExtResource("1_p2gj0")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd6lc"]
+atlas = ExtResource("1_p2gj0")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gstla"]
+atlas = ExtResource("1_p2gj0")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v5wyi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjw23")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2npkn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fd6lc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gstla")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0l8pv"]
+size = Vector2(10, 14)
+
+[node name="Slime" type="Node2D" unique_id=1794467802]
+script = ExtResource("1_n6pvg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=416522017]
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_v5wyi")
+autoplay = "default"
+frame = 2
+frame_progress = 0.96821225
+flip_h = true
+
+[node name="KillZone" parent="." unique_id=1183146848 instance=ExtResource("2_n6pvg")]
+script = ExtResource("4_pjw23")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" unique_id=1924964487]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_0l8pv")
+
+[node name="CoolDownTimer" type="Timer" parent="KillZone" unique_id=875480494]
+wait_time = 0.6
+one_shot = true
+
+[node name="RayCastRight" type="RayCast2D" parent="." unique_id=1062471234]
+position = Vector2(0, -7)
+target_position = Vector2(12, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="." unique_id=1973395133]
+position = Vector2(0, -7)
+target_position = Vector2(-9, 0)
+
+[connection signal="timeout" from="KillZone/CoolDownTimer" to="KillZone" method="_on_cool_down_timer_timeout"]

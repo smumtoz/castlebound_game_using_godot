@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bwcofksngtl61"]
+
+[ext_resource type="Script" uid="uid://c2123dfjlmy70" path="res://scripts/powerup.gd" id="1_r4ej8"]
+[ext_resource type="Texture2D" uid="uid://dregdbhxx3328" path="res://assests/sprites/fruit.png" id="2_dx3k5"]
+[ext_resource type="AudioStream" uid="uid://jdvreiqh8f6o" path="res://assests/sounds/power_up.wav" id="3_06c5n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pufsy"]
+atlas = ExtResource("2_dx3k5")
+region = Rect2(2, 50, 12, 13)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t4g7g"]
+radius = 140.0
+
+[node name="Powerup" type="Area2D" unique_id=760195131]
+collision_mask = 2
+script = ExtResource("1_r4ej8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=574673789]
+position = Vector2(518.5, 301.125)
+scale = Vector2(31.250002, 31.096151)
+texture = SubResource("AtlasTexture_pufsy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1660971563]
+position = Vector2(521, 367)
+shape = SubResource("CircleShape2D_t4g7g")
+
+[node name="PickupSFX" type="AudioStreamPlayer2D" parent="." unique_id=378987480]
+position = Vector2(74, 181)
+stream = ExtResource("3_06c5n")
+volume_db = -13.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

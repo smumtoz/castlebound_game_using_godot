@@ -1,0 +1,188 @@
+[gd_scene format=3 uid="uid://bc1qb252822mq"]
+
+[ext_resource type="Script" uid="uid://ja5pff2b4or3" path="res://scripts/complete.gd" id="1_8w4k1"]
+[ext_resource type="Script" uid="uid://s5vrim6u7gex" path="res://scripts/parallax_background.gd" id="2_505pg"]
+[ext_resource type="Texture2D" uid="uid://cxuf86868cxur" path="res://background/bg_12/bg_12_0002_Layer-3.png" id="3_b7qwe"]
+[ext_resource type="Texture2D" uid="uid://c2m416ffs5pih" path="res://textures/Inventory - Copy.png" id="3_qakgl"]
+[ext_resource type="Texture2D" uid="uid://byb11eyf7108w" path="res://background/bg_12/bg_12_0001_Layer-2.png" id="4_1l01k"]
+[ext_resource type="FontFile" uid="uid://c845wpmykmtsx" path="res://assests/fonts/PixelOperator8-Bold.ttf" id="4_4bpax"]
+[ext_resource type="FontFile" uid="uid://cygoyr7o3pm7i" path="res://assests/fonts/PixelOperator8.ttf" id="5_505pg"]
+[ext_resource type="Texture2D" uid="uid://cc8kx04uhb75s" path="res://background/bg_12/bg_12_0000_Layer-1-.png" id="5_xtdvl"]
+[ext_resource type="Texture2D" uid="uid://bmut3yeg411k0" path="res://textures/Buttons.png" id="6_4bpax"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_505pg"]
+texture = ExtResource("6_4bpax")
+region_rect = Rect2(212, 142, 42, 13)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b7qwe"]
+texture = ExtResource("6_4bpax")
+region_rect = Rect2(260, 275, 39, 12)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1l01k"]
+texture = ExtResource("6_4bpax")
+region_rect = Rect2(308, 274, 39, 13)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xtdvl"]
+texture = ExtResource("6_4bpax")
+region_rect = Rect2(212, 142, 42, 13)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ljuh2"]
+texture = ExtResource("6_4bpax")
+region_rect = Rect2(260, 275, 39, 12)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oqno0"]
+texture = ExtResource("6_4bpax")
+region_rect = Rect2(308, 274, 39, 13)
+
+[node name="Control" type="Control" unique_id=58073979]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8w4k1")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1782096465]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.11372549, 0.11372549, 0.11372549, 0.5882353)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=966723838]
+script = ExtResource("2_505pg")
+
+[node name="Layer_back" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1768677197]
+position = Vector2(576, 324)
+motion_scale = Vector2(0.1, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Layer_back" unique_id=514458038]
+texture = ExtResource("3_b7qwe")
+
+[node name="Layer_middle" type="ParallaxLayer" parent="ParallaxBackground" unique_id=882261934]
+position = Vector2(576, 324)
+motion_scale = Vector2(0.3, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Layer_middle" unique_id=1594214202]
+texture = ExtResource("4_1l01k")
+
+[node name="Layer_front" type="ParallaxLayer" parent="ParallaxBackground" unique_id=70885704]
+position = Vector2(576, 324)
+motion_scale = Vector2(0.6, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Layer_front" unique_id=302971415]
+texture = ExtResource("5_xtdvl")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=650035038]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -357.0
+offset_top = -288.0
+offset_right = 375.0
+offset_bottom = 274.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_qakgl")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1908675550]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -282.0
+offset_top = -351.0
+offset_right = 313.0
+offset_bottom = 236.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 44
+alignment = 1
+
+[node name="StoryLabel" type="Label" parent="VBoxContainer" unique_id=1287309446]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.24313726, 0.16862746, 0.015686275, 1)
+theme_override_fonts/font = ExtResource("5_505pg")
+theme_override_font_sizes/font_size = 27
+text = "The knight has reached the castle and lifted the curse."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="CoinsLabel" type="Label" parent="VBoxContainer" unique_id=1721337486]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.24313726, 0.16862746, 0.015686275, 1)
+theme_override_fonts/font = ExtResource("5_505pg")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
+[node name="Divider" type="HSeparator" parent="VBoxContainer" unique_id=2047200479]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=713125414]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.08154
+offset_top = 26.502045
+offset_right = 170.91846
+offset_bottom = 225.50208
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Play" type="Button" parent="VBoxContainer2" unique_id=996189889]
+custom_minimum_size = Vector2(260, 64)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_4bpax")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_505pg")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_b7qwe")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1l01k")
+text = "Play Again"
+
+[node name="Menu" type="Button" parent="VBoxContainer2" unique_id=1563337823]
+custom_minimum_size = Vector2(260, 64)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_4bpax")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_xtdvl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ljuh2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_oqno0")
+text = "Main Menu"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="." unique_id=1156161697]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -248.0
+offset_top = -269.0
+offset_right = 248.0
+offset_bottom = -229.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="CompleteLabel" type="Label" parent="VBoxContainer3" unique_id=1597500143]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.24313726, 0.16862746, 0.015686275, 1)
+theme_override_fonts/font = ExtResource("4_4bpax")
+theme_override_font_sizes/font_size = 32
+text = "CONGRATULATIONS!"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer2/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Menu" to="." method="_on_menu_pressed"]

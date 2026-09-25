@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://jehajhk01s3u"]
+
+[ext_resource type="Script" uid="uid://dvbt3mjyp5gdo" path="res://scripts/level_exit.gd" id="1_whe5f"]
+[ext_resource type="Texture2D" uid="uid://btm43bd557ao1" path="res://assests/sprites/statues_aseprite.png" id="2_k4ovl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_okpt8"]
+atlas = ExtResource("2_k4ovl")
+region = Rect2(229, 185, 44, 85)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pkyll"]
+size = Vector2(44, 80)
+
+[node name="LevelExit" type="Node2D" unique_id=389247927]
+script = ExtResource("1_whe5f")
+
+[node name="StatueSprite" type="Sprite2D" parent="." unique_id=1789134013]
+texture = SubResource("AtlasTexture_okpt8")
+
+[node name="TriggerArea" type="Area2D" parent="." unique_id=1451345033]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea" unique_id=1376760643]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_pkyll")
+
+[connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]
